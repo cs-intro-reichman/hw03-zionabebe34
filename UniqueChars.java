@@ -13,11 +13,16 @@ public class UniqueChars {
     public static String uniqueChars(String s) {
         String str = " "; 
 
+        
         for ( int i = 0; i < s.length(); i++) {
             if ( s.charAt(i) == ' ') {
                 str += s.charAt(i); 
             } else {
+
+                //define in variable the first index of the appreance of the char 
                 int index = s.indexOf(s.charAt(i)); 
+
+                // make sure that only the firsts apearnces get in the string that store the chars
                 if ( index != i) {
                     continue;
                 } else {

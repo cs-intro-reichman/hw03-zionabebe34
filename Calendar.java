@@ -1,7 +1,7 @@
 /** 
  * Prints the calendars of all the years in the 20th century.
  */
-public class Calendar1 {	
+public class Calendar {	
     // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
 	static int month = 1;
@@ -9,59 +9,52 @@ public class Calendar1 {
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int DaysInMonth = 31; // Number of days in January
 	static int daycountr = 1; 
-	static int counter = 0; // count all the sunday which fall on first day of month
- 
+	
 	
 	/** 
 	 * Prints the calendars of all the years in the 20th century. Also prints the  
 	 * number of Sundays that occured on the first day of the month during this period.
 	 */
 	public static void main(String args[]) {
-		// Advances the date and the day-of-the-week from 1/1/1900 till 31/12/1999, inclusive.
-	    // Prints each date dd/mm/yyyy in a separate line. If the day is a Sunday, prints "Sunday".
-	    // The following variable, used for debugging purposes, counts how many days were advanced so far.
-	    int debugDaysCounter = 1; 
-	    //// Write the necessary initialization code, and replace the condition
-	    //// of the while loop with the necessary condition 
-	 	while (true) {
-	 		//// Write the body of the while 		
-	 		advance();
-	 		debugDaysCounter++;
-	 		//// If you want to stop the loop after n days, replace the condition of the
-	 		//// if statement with the condition (debugDaysCounter == n)
-	 		if ( debugDaysCounter == 36525) { 
-				System.out.println("During the 20th century," + " " +counter + " " + "Sundays fell on the first day of the month");
-	 			break;
-			}
-        }
-	 	//// Write the necessary ending code here
+		int yearChose = Integer.parseInt(args[0]);
+		advance(yearChose);
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.
 	 // If the month changes, sets the number of days in this month.
 	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
-	 private static void advance() {
-	 	if ( daycountr % 7 == 0 ) {
-	 		System.out.println( dayOfMonth + "/" + month +  "/" + year + " " + "Sunday");
-			if ( dayOfMonth == 1){
-				counter++; 
-			}
-	
-	 	} else {
-	 		System.out.println(dayOfMonth + "/" + month +  "/" + year);
-	 	}
-	
+	 private static void advance( int yearChose ) {
+		while ( year < yearChose + 1) {
+			if ( year != yearChose) {
+				dayOfMonth++;
+				
+				if ( (dayOfMonth - 1) == (nDaysInMonth(month, year))) {
+					month++;
+					dayOfMonth = 1;
+					if ( month > 12 ){
+						year++;
+						month = 1;
+					}
+				}
+		
 
-		dayOfMonth++; 
-		daycountr++;
-		if ( (nDaysInMonth(month, year)) == (dayOfMonth - 1) ) {
-			month++;
-			dayOfMonth = 1;
-		if ( month > 12) {
-			year++;
-			month = 1;
-		}
-			
+			} else {
+				if ( daycountr % 7 == 0) {
+					System.out.println( dayOfMonth + "/" + month +  "/" + year + " " + "Sunday");
+				} else {
+					System.out.println(dayOfMonth + "/" + month +  "/" + year);
+				}
+				dayOfMonth++; 
+		        
+				if ( (dayOfMonth -1 ) == (nDaysInMonth(month, yearChose)) ) {
+					month++;
+					dayOfMonth = 1;
+					if ( month > 12 ) {
+						break;
+					}
+				}
+			}
+			daycountr++;
 		}
 
 	 	

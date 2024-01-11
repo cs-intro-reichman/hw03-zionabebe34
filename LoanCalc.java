@@ -37,6 +37,7 @@ public class LoanCalc {
 		System.out.println();
 		System.out.println("number of iterations: " + iterationCounter);
 	}
+	//compute the periodical payment in brute force algorithm
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
     	g = loan / n; 
 		iterationCounter = 0;
@@ -46,6 +47,8 @@ public class LoanCalc {
 		}
     	return g;
     }
+
+    //compute the periodical payment in Bi-section algorithm
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
     	iterationCounter = 0;
         high = loan; 
@@ -63,7 +66,8 @@ public class LoanCalc {
 		}
     	return g;
     }
-	
+
+	//compute the remaining from the loan after payments and rates
 	private static double endBalance(double loan, double rate, int n, double payment) {	
 		eb = loan; 
 		for ( int i = 0; i < n; i++ ) {

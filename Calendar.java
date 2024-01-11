@@ -1,6 +1,4 @@
-/** 
- * Prints the calendars of all the years in the 20th century.
- */
+
 public class Calendar {	
     // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
@@ -9,58 +7,47 @@ public class Calendar {
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int DaysInMonth = 31; // Number of days in January
 	static int daycountr = 1; 
-	
-	
-	/** 
-	 * Prints the calendars of all the years in the 20th century. Also prints the  
-	 * number of Sundays that occured on the first day of the month during this period.
-	 */
+	static int counter = 0; // count all the sunday which fall on first day of month
+ 
+
+	//print the calendar of specific year 
 	public static void main(String args[]) {
-		int yearChose = Integer.parseInt(args[0]);
-		advance(yearChose);
+		int yearlast = Integer.parseInt(args[0]);
+		advance(yearlast);
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.
 	 // If the month changes, sets the number of days in this month.
 	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
+	 //the function get a year as argument and print the calendar of the year 
 	 private static void advance( int yearChose ) {
-		while ( year < yearChose + 1) {
-			if ( year != yearChose) {
-				dayOfMonth++;
-				
-				if ( (dayOfMonth - 1) == (nDaysInMonth(month, year))) {
-					month++;
-					dayOfMonth = 1;
-					if ( month > 12 ){
-						year++;
-						month = 1;
-					}
-				}
-		
-
-			} else {
+		while ( year < (yearChose + 1)) {
+			if ( year == yearChose) {
 				if ( daycountr % 7 == 0) {
 					System.out.println( dayOfMonth + "/" + month +  "/" + year + " " + "Sunday");
 				} else {
 					System.out.println(dayOfMonth + "/" + month +  "/" + year);
 				}
 				dayOfMonth++; 
-		        
-				if ( (dayOfMonth -1 ) == (nDaysInMonth(month, yearChose)) ) {
+		        daycountr++;
+				if ( (dayOfMonth - 1 ) == (nDaysInMonth(month, yearChose)) ) {
 					month++;
-					dayOfMonth = 1;
+					dayOfMonth = 1; 
 					if ( month > 12 ) {
 						break;
 					}
-				}
-			}
-			daycountr++;
-		}
+				}	
 
-	 	
-	
+			} else {
+				year++; 
+			}
+			
+		}
 		
 	 } 
+
+
+
 		 
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {

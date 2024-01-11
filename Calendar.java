@@ -6,7 +6,7 @@ public class Calendar {
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int DaysInMonth = 31; // Number of days in January
-	static int daycountr = 1; 
+	static int daycountr = 0; 
 	static int counter = 0; // count all the sunday which fall on first day of month
 	//
  

@@ -70,5 +70,6 @@ public class LoanCalc {
 			eb = (eb - payment) * ( 1 + (rate / 100));
 		}
     	return eb;
+		//
 	}
 }

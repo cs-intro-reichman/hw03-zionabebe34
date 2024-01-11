@@ -6,8 +6,7 @@ public class Calendar {
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int DaysInMonth = 31; // Number of days in January
-	static int daycountr = 0; 
-	static int counter = 0; // count all the sunday which fall on first day of month
+	static int daycountr = 2; //count the days untill is sunday 
 	//
  
 
@@ -24,14 +23,18 @@ public class Calendar {
 	 //the function get a year as argument and print the calendar of the year 
 	 private static void advance( int yearChose ) {
 		while ( year < (yearChose + 1)) {
+			daycountr++; 
+
 			if ( year == yearChose) {
-				if ( daycountr % 7 == 0) {
+				if ( daycountr  % 7 == 0) {
 					System.out.println( dayOfMonth + "/" + month +  "/" + year + " " + "Sunday");
+					System.out.println(daycountr); 	
+
 				} else {
 					System.out.println(dayOfMonth + "/" + month +  "/" + year);
 				}
+
 				dayOfMonth++; 
-		        daycountr++;
 				if ( (dayOfMonth - 1 ) == (nDaysInMonth(month, yearChose)) ) {
 					month++;
 					dayOfMonth = 1; 
@@ -39,14 +42,16 @@ public class Calendar {
 						break;
 					}
 				}	
-
-			} else {
+		    } else {
 				year++; 
 			}
+		
+		}
 			
 		}
 		
-	 } 
+	 
+
 
 
 

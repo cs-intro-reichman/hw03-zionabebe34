@@ -8,6 +8,7 @@ public class Calendar {
 	static int DaysInMonth = 31; // Number of days in January
 	static int daycountr = 1; 
 	static int counter = 0; // count all the sunday which fall on first day of month
+	//
  
 
 	//print the calendar of specific year 

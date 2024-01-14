@@ -29,6 +29,8 @@ public class Calendar0 {
 
 	// Returns true if the given year is a leap year, false otherwise.
 	public static boolean isLeapYear(int year) {
+	// #feedback - this function can become one line (without any variables) -
+	// return ((year % 400) == 0) || (((year % 4) == 0) && ((year % 100) != 0))
 	    boolean isLeapYear = false; 
 
 	    //check if the year is divisible by 400
@@ -46,8 +48,8 @@ public class Calendar0 {
 	public static int nDaysInMonth(int month, int year) {
 		int days = 0; 
 		switch (month) {
-			case 1:
-			    days = 31;
+			case 1: // #feedback - if you want to avoid many cases, you can just set 31 as the default and handle all the other cases.
+			    days = 31; // #feedback - you can return the days directly instead of setting the number and only then returning it.
 				break;
 			case 2:
 			     days = (isLeapYear(year))?(29):(28); 

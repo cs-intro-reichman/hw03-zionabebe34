@@ -24,7 +24,7 @@ public class UniqueChars {
 
                 // make sure that only the firsts apearnces get in the string that store the chars
                 if ( index != i) {
-                    continue;
+                    continue; // #feedback - you can check if "index == i" and remove the "continue" and "else".
                 } else {
                     char newChar = s.charAt(index); 
                     str += newChar;

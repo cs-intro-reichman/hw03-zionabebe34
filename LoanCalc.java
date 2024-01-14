@@ -40,11 +40,11 @@ public class LoanCalc {
 	//compute the periodical payment in brute force algorithm
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
     	g = loan / n; 
-		iterationCounter = 0;
+	iterationCounter = 0; // #feedback - note the indentation here.
     	while (endBalance(loan, rate, n, g ) > epsilon ){
-			g+= epsilon; 
-			iterationCounter++; 
-		}
+		g+= epsilon; 
+		iterationCounter++; 
+	}
     	return g;
     }
 
@@ -73,7 +73,6 @@ public class LoanCalc {
 		for ( int i = 0; i < n; i++ ) {
 			eb = (eb - payment) * ( 1 + (rate / 100));
 		}
-    	return eb;
-		//
+    		return eb;
 	}
 }
